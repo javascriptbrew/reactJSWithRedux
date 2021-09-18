@@ -1,10 +1,10 @@
-import { takeLatest, delay, put, call } from "redux-saga/effects";
+import { takeLatest, takeEvery, delay, put, call } from "redux-saga/effects";
 import { decrement, increment } from "../../reducers/counterReducer";
 import sagaActions from "./sagaActions";
 
 function* doApiCallIncrement({ payload }) {
   try {
-    yield delay(2000);
+    // yield delay(2000);
     yield put(increment(payload));
   } catch (error) {}
 }
