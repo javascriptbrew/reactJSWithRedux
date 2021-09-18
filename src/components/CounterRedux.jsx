@@ -6,6 +6,7 @@ import {
   incrementByAmount,
   resetCount,
 } from "../reducers/counterReducer";
+import sagaActions from "../sagas/counterSaga/sagaActions";
 
 function CounterRedux(props) {
   const count = useSelector((state) => state.counterStore.count);
@@ -17,9 +18,17 @@ function CounterRedux(props) {
       <div>
         <b>Product:</b> {count}
       </div>
-      <button onClick={() => dispatch(increment())}>Increment</button>
-      <button onClick={() => dispatch(decrement())}>Decrement</button>
-      <button onClick={() => dispatch(resetCount())}>Rest Count</button>
+      <button
+        onClick={() => dispatch({ type: sagaActions.DO_INCREMENT, payload: 1 })}
+      >
+        Increment
+      </button>
+      <button
+        onClick={() => dispatch({ type: sagaActions.DO_DECREMENT, payload: 1 })}
+      >
+        Decrement
+      </button>
+      <button onClick={() => dispatch(resetCount(0))}>Rest Count</button>
       <button onClick={() => dispatch(incrementByAmount(byAmount))}>
         Increment By 5
       </button>

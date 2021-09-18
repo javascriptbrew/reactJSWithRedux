@@ -21,9 +21,9 @@ function App() {
       <TestComp />
       <hr />
       {/* <FormStore /> */}
-      <AddTodoForm />
+      {/* <AddTodoForm />
       <TodoList />
-      <TotalCompleteItems />
+      <TotalCompleteItems /> */}
     </>
   );
 }

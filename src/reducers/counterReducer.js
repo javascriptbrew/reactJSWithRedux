@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 
 const counterReducer = createSlice({
   name: "counter",
@@ -7,10 +8,10 @@ const counterReducer = createSlice({
   },
   reducers: {
     increment: (state, action) => {
-      state.count = state.count + 1;
+      state.count = state.count + action.payload;
     },
     decrement: (state, action) => {
-      state.count = state.count - 1;
+      state.count = state.count - action.payload;
     },
     resetCount: (state, action) => {
       state.count = 0;
